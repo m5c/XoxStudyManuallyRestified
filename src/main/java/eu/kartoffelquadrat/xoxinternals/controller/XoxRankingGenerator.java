@@ -1,6 +1,6 @@
 package eu.kartoffelquadrat.xoxinternals.controller;
 
-import eu.kartoffelquadrat.xoxinternals.model.PlayerReadOnly;
+import eu.kartoffelquadrat.xoxinternals.model.Player;
 import eu.kartoffelquadrat.xoxinternals.model.XoxGame;
 import eu.kartoffelquadrat.xoxinternals.model.XoxGameReadOnly;
 
@@ -29,12 +29,12 @@ public class XoxRankingGenerator implements RankingGenerator {
             return new Ranking(game.getPlayers(), new int[]{0, 0}, true);
 
         // Winner (player with 3 in a row) gets 1 point, looser 0.
-        char winnerChar = xoxGame.getBoard().getThreeInALineCharIfExists();
-        PlayerReadOnly[] rankedPlayers = game.getPlayers();
+        int winnerInt = xoxGame.getBoard().getThreeInALineCharIfExists();
+        Player[] rankedPlayers = game.getPlayers();
 
         // If the non-creator won, overwrite with a ranking that is the inverse of the games player listing.
-        if (winnerChar != 'x') {
-            PlayerReadOnly[] invertedRankedPlayers = new PlayerReadOnly[2];
+        if (winnerInt != 1) {
+            Player[] invertedRankedPlayers = new Player[2];
             invertedRankedPlayers[0] = rankedPlayers[1];
             invertedRankedPlayers[1] = rankedPlayers[0];
             rankedPlayers = invertedRankedPlayers;

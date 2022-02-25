@@ -8,7 +8,7 @@ package eu.kartoffelquadrat.xoxinternals.model;
 public class XoxGame implements XoxGameReadOnly {
 
     // Read only access to the parameters of the two involved players.
-    private final PlayerReadOnly[] players = new PlayerReadOnly[2];
+    private final Player[] players = new Player[2];
 
     // Reference to current state of the board
     Board board;
@@ -35,8 +35,8 @@ public class XoxGame implements XoxGameReadOnly {
     }
 
     @Override
-    public PlayerReadOnly getPlayerByName(String name) {
-        for (PlayerReadOnly player : players) {
+    public Player getPlayerByName(String name) {
+        for (Player player : players) {
             if (player.getName().equals(name))
                 return player;
         }
@@ -49,15 +49,15 @@ public class XoxGame implements XoxGameReadOnly {
     }
 
     @Override
-    public PlayerReadOnly[] getPlayers() {
-        PlayerReadOnly[] deepCopy = new PlayerReadOnly[players.length];
+    public Player[] getPlayers() {
+        Player[] deepCopy = new Player[players.length];
         deepCopy[0] = players[0];
         deepCopy[1] = players[1];
         return deepCopy;
     }
 
     @Override
-    public PlayerReadOnly getPlayerInfo(int index) {
+    public Player getPlayerInfo(int index) {
         return players[index];
     }
 
@@ -82,7 +82,7 @@ public class XoxGame implements XoxGameReadOnly {
      * @param player as the object to test.
      * @return true if the provided player matches the creator of this game. False otherwise.
      */
-    public boolean isFirstPlayer(PlayerReadOnly player) {
+    public boolean isFirstPlayer(Player player) {
         return getPlayers()[0].equals(player);
     }
 }

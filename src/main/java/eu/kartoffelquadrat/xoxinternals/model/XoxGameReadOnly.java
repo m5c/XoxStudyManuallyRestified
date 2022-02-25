@@ -13,7 +13,7 @@ public interface XoxGameReadOnly {
      * @param name as the name of the player to look up.
      * @return PlayerReadOnly as the matching player object, if associated. Null otherwise.
      */
-    PlayerReadOnly getPlayerByName(String name);
+    Player getPlayerByName(String name);
 
     /**
      * Retrieves the board of a generic game.
@@ -28,7 +28,7 @@ public interface XoxGameReadOnly {
      *
      * @return a deep copy of the player array associated to a game.
      */
-    PlayerReadOnly[] getPlayers();
+    Player[] getPlayers();
 
     /**
      * Returns bundled information on a player, accessed by the player index within this game instance.
@@ -36,5 +36,5 @@ public interface XoxGameReadOnly {
      * @param index to select the player. Either 0 or 1.
      * @return the player info bundle.
      */
-    public PlayerReadOnly getPlayerInfo(int index);
+    public Player getPlayerInfo(int index);
 }
